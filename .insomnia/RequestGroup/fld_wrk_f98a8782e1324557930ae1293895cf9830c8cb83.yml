@@ -1,0 +1,10 @@
+_id: fld_wrk_f98a8782e1324557930ae1293895cf9830c8cb83
+type: RequestGroup
+parentId: wrk_f98a8782e1324557930ae1293895cf98
+modified: 1628754953924
+created: 1628754947924
+name: Job
+description: Semua tentang data pekerjaan / ticket di info
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1628754947924

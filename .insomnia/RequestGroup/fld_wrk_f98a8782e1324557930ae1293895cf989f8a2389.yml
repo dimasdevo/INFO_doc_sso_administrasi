@@ -1,0 +1,10 @@
+_id: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
+type: RequestGroup
+parentId: wrk_f98a8782e1324557930ae1293895cf98
+modified: 1628754953929
+created: 1628754947929
+name: User
+description: Semua tentang data user login
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1628754947929

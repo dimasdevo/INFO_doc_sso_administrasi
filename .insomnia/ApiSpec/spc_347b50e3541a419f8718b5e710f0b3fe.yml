@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1628753825872
+modified: 1628755431267
 created: 1609993096619
 fileName: SSO_Info
 contents: |-
@@ -30,5 +30,96 @@ contents: |-
   - name: "Export"
     description: "Semua tentang data export ke dalam info"
   paths:
-  /sso/user/login:
+    /sso/user/login:
+      post:
+        tags:
+        - "User"
+        summary: "Halaman login dari aplikasi info"
+        description : "Halaman login dari aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "NIK karyawan"
+                    schema:
+                      type: string
+                  password:
+                    description: "Password karyawan"
+                    schema:
+                      type: string
+                required:
+                  - nik
+                  - password
+
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/user/token:
+      post:
+        tags:
+        - "User"
+        summary: "Halaman redirect token dari aplikasi info"
+        description : "Halaman redirect token dari aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    description: "Kode access token"
+                    schema:
+                      type: string
+                required:
+                  - access_token
+
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/user/forgot:
+      post:
+        tags:
+        - "User"
+        summary: "Halaman redirect untuk lupa password aplikasi info"
+        description : "Halaman redirect untuk lupa password aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "NIK karyawan"
+                    schema:
+                      type: string
+                required:
+                  - nik
+
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
 contentType: yaml

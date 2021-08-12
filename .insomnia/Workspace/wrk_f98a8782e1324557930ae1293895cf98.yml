@@ -1,8 +1,8 @@
 _id: wrk_f98a8782e1324557930ae1293895cf98
 type: Workspace
 parentId: null
-modified: 1609993096617
+modified: 1628754953935
 created: 1609993096617
-name: buletin
-description: ""
+name: Helpdesk API SSO 1.0.0
+description: Merupakan data SSO / Administrasi dari aplikasi info
 scope: spec
