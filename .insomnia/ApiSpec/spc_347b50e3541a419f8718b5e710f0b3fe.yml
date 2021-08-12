@@ -1,0 +1,34 @@
+_id: spc_347b50e3541a419f8718b5e710f0b3fe
+type: ApiSpec
+parentId: wrk_f98a8782e1324557930ae1293895cf98
+modified: 1628753825872
+created: 1609993096619
+fileName: SSO_Info
+contents: |-
+  openapi: "3.0.0"
+  info:
+    description: "Merupakan data SSO / Administrasi dari aplikasi info"
+    version: "1.0.0"
+    title: "Helpdesk API SSO"
+    termsOfService: "https://helpdesk-api.indonesian-aerospace.com"
+    contact:
+      email: "infosupport@indonesian-aerospace.com"
+  servers:
+    - url: "http://api"
+    - url: "http://helpdesk-api-dev"
+    - url: "http://helpdesk-api-test"
+    - url: "https://helpdesk-api.indonesian-aerospace.com"
+  tags:
+  - name: "User"
+    description: "Semua tentang data user login"
+  - name: "Admin"
+    description: "Semua tentang data administrasi user di info"
+  - name: "Bulletin"
+    description: "Semua tentang data buletin di info"
+  - name: "Job"
+    description: "Semua tentang data pekerjaan / ticket di info"
+  - name: "Export"
+    description: "Semua tentang data export ke dalam info"
+  paths:
+  /sso/user/login:
+contentType: yaml
