@@ -1,0 +1,21 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf983c57eb41
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf98f3e4fadb
+modified: 1628757025524
+created: 1628756926926
+url: "{{ base_url }}/sso/user/export"
+name: Mengambil data export dari user portal
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1628756926926
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

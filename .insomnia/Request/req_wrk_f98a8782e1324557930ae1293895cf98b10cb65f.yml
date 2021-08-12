@@ -1,10 +1,10 @@
-_id: req_wrk_f98a8782e1324557930ae1293895cf98303d6d64
+_id: req_wrk_f98a8782e1324557930ae1293895cf98b10cb65f
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025535
-created: 1628754947920
-url: "{{ base_url }}/sso/user/login"
-name: Halaman login dari aplikasi info
+modified: 1628757025530
+created: 1628756926930
+url: "{{ base_url }}/sso/user/repassword"
+name: Halaman redirect untuk reset password aplikasi info
 description: ""
 method: POST
 body:
@@ -12,7 +12,7 @@ body:
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1628754947920
+metaSortKey: -1628756926931
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

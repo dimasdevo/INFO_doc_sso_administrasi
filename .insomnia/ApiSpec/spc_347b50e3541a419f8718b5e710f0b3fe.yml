@@ -1,11 +1,12 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1628755431267
+modified: 1628757025554
 created: 1609993096619
 fileName: SSO_Info
-contents: |-
+contents: >-
   openapi: "3.0.0"
+
   info:
     description: "Merupakan data SSO / Administrasi dari aplikasi info"
     version: "1.0.0"
@@ -19,6 +20,7 @@ contents: |-
     - url: "http://helpdesk-api-test"
     - url: "https://helpdesk-api.indonesian-aerospace.com"
   tags:
+
   - name: "User"
     description: "Semua tentang data user login"
   - name: "Admin"
@@ -115,6 +117,139 @@ contents: |-
                 required:
                   - nik
 
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/user/repassword:
+      post:
+        tags:
+        - "User"
+        summary: "Halaman redirect untuk reset password aplikasi info"
+        description : "Halaman redirect untuk reset password aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "NIK karyawan"
+                    schema:
+                      type: string
+                  id:
+                    description: "NIK karyawan"
+                    schema:
+                      type: string
+                required:
+                  - nik
+                  - id
+
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/user/register:
+      post:
+        tags:
+        - "User"
+        summary: "Halaman redirect untuk register user aplikasi info"
+        description : "Halaman redirect untuk register user aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "NIK karyawan"
+                    schema:
+                      type: string
+                required:
+                  - nik
+
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/user/role:
+      get:
+        tags:
+        - "User"
+        summary: "Mencari data karyawan"
+        description: "Mencari data karyawan"
+        operationsId: "/general/employee"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_role"
+          in: "query"
+          description: "Kode dari role aplikasi info"
+          required: true
+          type: "string"
+        responses:
+          "200":
+            description: "succesfull operation"
+          "400":
+            description: "invalid"
+    /sso/user/export:
+      get:
+        tags:
+        - "Export"
+        summary: "Mengambil data export dari user portal"
+        description : "Mengambil data export dari user portal"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+      post:
+        tags:
+        - "Export"
+        summary: "Me-export data user portal ke aplikasi info"
+        description : "Me-export data user portal mejadi user di aplikasi info dengan data yang belum ada"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+      put:
+        tags:
+        - "Export"
+        summary: "Mengupdate data log dari aplikasi info frontend"
+        description : "Mengupdate data log dari aplikasi info frontend"
+        produces:
+        - "application/json"
+        parameters:
+        - in: query
+          name: "id"
+          description: "NIK karyawan"
+          required: true
+          schema:
+            type: "string"
         responses:
           "200":
             description: "Succesfull operation"

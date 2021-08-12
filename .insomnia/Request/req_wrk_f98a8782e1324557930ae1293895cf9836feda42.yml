@@ -1,18 +1,20 @@
-_id: req_wrk_f98a8782e1324557930ae1293895cf98303d6d64
+_id: req_wrk_f98a8782e1324557930ae1293895cf9836feda42
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025535
-created: 1628754947920
-url: "{{ base_url }}/sso/user/login"
-name: Halaman login dari aplikasi info
+modified: 1628757025526
+created: 1628756926927
+url: "{{ base_url }}/sso/user/role"
+name: Mencari data karyawan
 description: ""
-method: POST
-body:
-  mimeType: multipart/form-data
-parameters: []
+method: GET
+body: {}
+parameters:
+  - name: kode_role
+    disabled: false
+    value: undefined
 headers: []
 authentication: {}
-metaSortKey: -1628754947920
+metaSortKey: -1628756926927
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

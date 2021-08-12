@@ -1,10 +1,10 @@
-_id: req_wrk_f98a8782e1324557930ae1293895cf98303d6d64
+_id: req_wrk_f98a8782e1324557930ae1293895cf989d70e47b
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025535
-created: 1628754947920
-url: "{{ base_url }}/sso/user/login"
-name: Halaman login dari aplikasi info
+modified: 1628757025528
+created: 1628756926929
+url: "{{ base_url }}/sso/user/register"
+name: Halaman redirect untuk register user aplikasi info
 description: ""
 method: POST
 body:
@@ -12,7 +12,7 @@ body:
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1628754947920
+metaSortKey: -1628756926929
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
