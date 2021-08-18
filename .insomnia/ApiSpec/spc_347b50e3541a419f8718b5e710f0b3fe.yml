@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629277227853
+modified: 1629279066109
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -291,6 +291,61 @@ contents: >-
             description: "Method not allowed"
         security:
           - ApiKeyAuth: [] 
+      post:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        description : "Mengambil data pekerjaan untuk plugin datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  start:
+                    type: integer
+                    example: 0
+                  length:
+                    type: integer
+                    example: 10
+                  draw:
+                    type: integer
+                    example: 1
+                  order:
+                    type: object
+                    example: [
+                      {
+                        column: "i_tckt",
+                        dir: "asc"
+                       }
+                    ]
+                  columns:
+                    type: object
+                    example: [
+                      data: "i_tckt",
+                      data: "d_tckt_entry",
+                      data: "i_emp",
+                      data: "i_emp_assign",
+                      data: "e_tckt_stat",
+                      data: "n_hit_sc",
+                      data: "n_hit_rqst",
+                      data: "e_tckt_pos",
+                      ]
+                  search:
+                    type: object
+                    example: 
+                      {'value':'180137'}
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        
     /sso/job/count:
       get:
         tags:
