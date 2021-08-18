@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1628838819924
+modified: 1629277227853
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -257,4 +257,95 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
+    /sso/job:
+      get:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan berdasarkan nilai tertentu"
+        description : "Mengambil data pekerjaan berdasarkan nilai tertentu"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "tiket"
+          in: "query"
+          description: "Nomor tiket"
+          type: "string"
+        - name: "assign"
+          in: "query"
+          description: "NIK Penanggung jawab"
+          type: "string"
+        - name: "nik"
+          in: "query"
+          description: "Nomor ID Karyawan"
+          type: "string"
+        - name: "role"
+          in: "query"
+          description: "Role dari karyawan"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+    /sso/job/count:
+      get:
+        tags:
+        - "Job"
+        summary: "Mengambil jumlah data pekerjaan berdasarkan id"
+        description : "Mengambil jumlah data pekerjaan berdasarkan id"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+    /sso/job/myticket:
+      get:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan sendiri"
+        description : "Mengambil data pekerjaan sendiri"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+    /sso/job/job:
+       get:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan berdasarkan id"
+        description : "Mengambil data pekerjaan berdasarkan id"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+  components:
+    securitySchemes:
+      ApiKeyAuth:
+        type: apiKey
+        in: header
+        name: token
 contentType: yaml
