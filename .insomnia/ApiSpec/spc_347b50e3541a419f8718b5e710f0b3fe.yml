@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629280638320
+modified: 1629280871541
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -311,7 +311,6 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
-        
     /sso/job/count:
       get:
         tags:
@@ -346,6 +345,25 @@ contents: >-
             description: "Method not allowed"
         security:
           - ApiKeyAuth: [] 
+      patch:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        description : "Mengambil data pekerjaan untuk plugin datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/datatable'
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
     /sso/job/job:
        get:
         tags:
@@ -363,6 +381,46 @@ contents: >-
             description: "Method not allowed"
         security:
           - ApiKeyAuth: [] 
+    /sso/job/joblist:
+      patch:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        description : "Mengambil data pekerjaan untuk plugin datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/datatable'
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+    /sso/job/myjob:
+      patch:
+        tags:
+        - "Job"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        description : "Mengambil data pekerjaan untuk plugin datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/datatable'
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
   components:
     schemas:
       datatable:
