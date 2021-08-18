@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629280349463
+modified: 1629280638320
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -303,26 +303,7 @@ contents: >-
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  start:
-                    type: integer
-                    example: 0
-                  length:
-                    type: integer
-                    example: 10
-                  draw:
-                    type: integer
-                    example: 1
-                  order:
-                    $ref: '#/components/schemas/order'
-                  columns:
-                    $ref: '#/components/schemas/columns'
-                    
-                  search:
-                    type: object
-                    example: 
-                      {'value':'160260'}
+                $ref: '#/components/schemas/datatable'
         responses:
           "200":
             description: "Succesfull operation"
@@ -384,46 +365,63 @@ contents: >-
           - ApiKeyAuth: [] 
   components:
     schemas:
-      columns:
+      datatable:
         type: object
-        example: [
-          {
-            data: "ticket",
-            name: "",
-            searchable: "true",
-            orderable: "true",
-            search: [{
-              value: "",
-              regex: "false",
-            }]
-          },
-          {
-            data: "progress",
-            name: "",
-            searchable: "true",
-            orderable: "true"
-          },
-          {
-            data: "tanggal_entry",
-            name: "",
-            searchable: "true",
-            orderable: "true"
-          },
-          {
-            data: "ticket",
-            name: "",
-            searchable: "true",
-            orderable: "true"
-          },
-          ]
-      order:
-        type: object
-        example: [
-          {
-            column: 0,
-            dir: "asc"
-           }
-        ] 
+        properties:
+          start:
+            type: integer
+            example: 0
+          length:
+            type: integer
+            example: 10
+          draw:
+            type: integer
+            example: 1
+          order:
+            type: object
+            example: [
+              {
+                column: 0,
+                dir: "asc"
+               }
+            ]
+          columns:
+            type: object
+            example: [
+              {
+                data: "ticket",
+                name: "",
+                searchable: "true",
+                orderable: "true",
+                search: [{
+                  value: "",
+                  regex: "false",
+                }]
+              },
+              {
+                data: "progress",
+                name: "",
+                searchable: "true",
+                orderable: "true"
+              },
+              {
+                data: "tanggal_entry",
+                name: "",
+                searchable: "true",
+                orderable: "true"
+              },
+              {
+                data: "ticket",
+                name: "",
+                searchable: "true",
+                orderable: "true"
+              },
+              ]
+          search:
+            type: object
+            example: 
+              {'value':'160260'}
+        
     securitySchemes:
       ApiKeyAuth:
         type: apiKey
