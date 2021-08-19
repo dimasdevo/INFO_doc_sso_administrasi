@@ -1,0 +1,25 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf98d73e6f83
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
+modified: 1629361512368
+created: 1629361512368
+url: "{{ base_url }}/sso/aplikasi"
+name: Menambahkan data Aplikasi yanga ada di aplikasi info
+description: ""
+method: POST
+body:
+  mimeType: multipart/form-data
+parameters: []
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
+authentication: {}
+metaSortKey: -1629361512368
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

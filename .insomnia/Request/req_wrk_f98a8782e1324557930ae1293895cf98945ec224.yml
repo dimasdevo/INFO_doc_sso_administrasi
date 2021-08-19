@@ -1,0 +1,30 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf98945ec224
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
+modified: 1629361512357
+created: 1629361512357
+url: "{{ base_url }}/sso/aplikasi/modul"
+name: Mengambil data Modul yanga ada di aplikasi info
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: kode_modul
+    disabled: true
+    value: undefined
+  - name: kode_parent
+    disabled: true
+    value: undefined
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
+authentication: {}
+metaSortKey: -1629361512357
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
