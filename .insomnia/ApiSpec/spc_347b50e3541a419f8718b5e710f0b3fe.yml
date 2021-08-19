@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629357852401
+modified: 1629359571412
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -16,9 +16,13 @@ contents: >-
       email: "infosupport@indonesian-aerospace.com"
   servers:
     - url: "http://api"
+      description: Local server
     - url: "http://helpdesk-api-dev"
+      description: Development server
     - url: "http://helpdesk-api-test"
+      description: Testing server
     - url: "https://helpdesk-api.indonesian-aerospace.com"
+      description: Production server (uses live data)
   tags:
 
   - name: "User"
@@ -575,10 +579,15 @@ contents: >-
       post:  
         tags:
         - "Bulletin"
-        summary: "Menambah data buletin di aplikasi info"
-        description : "Menambah data buletin di aplikasi info"
+        summary: "Menambah dan update data buletin di aplikasi info"
+        description : "Menambah dan update data buletin di aplikasi info"
         produces:
         - "multipart/form-data"
+        parameters:
+        - name: "id"
+          in: "query"
+          description: "Nomor ID Buletin"
+          type: "string"
         requestBody:
           content:
             multipart/form-data:
@@ -610,8 +619,39 @@ contents: >-
                       type: string
                   image_thumbnail:
                     description: "Image Thumbnail Buletin"
-                    schema:
-                      format: binary
+                    type: image
+                    format: binary
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+    /sso/admin/bulletin/{id}:
+      delete:
+        tags:
+        - "Bulletin"
+        summary: "Menghapus data buletin di aplikasi info"
+        description : "Menghapus data buletin di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "id"
+          in: "path"
+          description: "Nomor ID Buletin"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
     /sso/admin/bulletin/data/{id}:
       get:
         tags:
@@ -679,6 +719,52 @@ contents: >-
         security:
           - ApiKeyAuth: [] 
     /sso/admin/bulletin/category:
+      get:
+        tags:
+        - "Bulletin"
+        summary: "Mengambil data kategori buletin di aplikasi info"
+        description : "Mengambil data kategori buletin di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_aplikasi"
+          in: "query"
+          description: "Kode aplikasi"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      post:
+        tags:
+        - "Bulletin"
+        summary: "Menambahkan data kategori buletin di aplikasi info"
+        description : "Menambahkan data kategori buletin di aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nama:
+                    description: "Nama Kategori Buletin"
+                    type: string
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
     /sso/aplikasi:
     /sso/aplikasi/modul:
     /sso/aplikasi/role:
@@ -731,8 +817,7 @@ contents: >-
           search:
             type: object
             example: 
-              {'value':'160260'}
-        
+              {'value':'160260'} 
     securitySchemes:
       ApiKeyAuth:
         type: apiKey

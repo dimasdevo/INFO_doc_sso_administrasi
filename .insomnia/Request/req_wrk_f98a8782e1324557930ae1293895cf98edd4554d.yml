@@ -1,25 +1,20 @@
-_id: req_wrk_f98a8782e1324557930ae1293895cf98fa976278
+_id: req_wrk_f98a8782e1324557930ae1293895cf98edd4554d
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf986ef09868
-modified: 1629357878353
-created: 1629348428696
-url: "{{ base_url }}/sso/admin/bulletin"
-name: Menambah data buletin di aplikasi info
+modified: 1629358874333
+created: 1629358874333
+url: "{{ base_url }}/sso/admin/bulletin/{{ id }}"
+name: Menghapus data buletin di aplikasi info
 description: ""
-method: POST
-body:
-  mimeType: multipart/form-data
-  params: []
-parameters:
-  - name: id
-    disabled: true
-    value: undefined
+method: DELETE
+body: {}
+parameters: []
 headers:
   - name: token
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629348428696
+metaSortKey: -1629358874333
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
