@@ -1,0 +1,23 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf98fa976278
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf986ef09868
+modified: 1629357878353
+created: 1629348428696
+url: "{{ base_url }}/sso/admin/bulletin"
+name: Menambah data buletin di aplikasi info
+description: ""
+method: POST
+body:
+  mimeType: multipart/form-data
+  params: []
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1629348428696
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
