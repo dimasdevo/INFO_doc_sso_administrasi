@@ -1,0 +1,36 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf9873380d65
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf9830c8cb83
+modified: 1629341279784
+created: 1629341279784
+url: "{{ base_url }}/sso/job"
+name: Mengambil data pekerjaan berdasarkan nilai tertentu
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: tiket
+    disabled: true
+    value: undefined
+  - name: assign
+    disabled: true
+    value: undefined
+  - name: nik
+    disabled: true
+    value: undefined
+  - name: role
+    disabled: true
+    value: undefined
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
+authentication: {}
+metaSortKey: -1629341279784
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

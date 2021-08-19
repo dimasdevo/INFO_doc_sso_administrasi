@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629280871541
+modified: 1629347302556
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -421,6 +421,149 @@ contents: >-
           "400":
             description: "Invalid"
           "405":
+    /sso/activity:
+      get:
+        tags:
+        - "Job"
+        summary: "Mengambil data aktivitas terhadap pekerjaan"
+        description : "Mengambil data aktivitas terhadap pekerjaan"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "nik"
+          in: "query"
+          description: "Nomor ID Karyawan"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      post:
+        tags:
+        - "Job"
+        summary: "Mengambil data aktivitas terhadap pekerjaan"
+        description : "Mengambil data aktivitas terhadap pekerjaan berupa datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/datatable'
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+    /sso/admin/user:
+      get:
+        tags:
+        - "Admin"
+        summary: "Mengambil data user di aplikasi info"
+        description : "Mengambil data user di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "nik"
+          in: "query"
+          description: "Nomor ID User"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+      post:
+        tags:
+        - "Job"
+        summary: "Mengambil data user di aplikasi info"
+        description : "Mengambil data user di aplikasi info berupa datatable"
+        produces:
+        - "application/json"
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/datatable'
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+    /sso/admin/user/{id}:
+      put:
+        tags:
+        - "Admin"
+        summary: "Mengambil data user di aplikasi info"
+        description : "Mengambil data user di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "id"
+          in: "path"
+          description: "Nomor ID User"
+          type: "string"
+        - name: "nik"
+          in: "query"
+          description: "Nomor ID User"
+          type: "string"
+        requestBody:
+          required: true
+          content:
+            application/x-www-form-urlencoded:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "Nomor ID User"
+                    schema:
+                      type: string
+                  nama:
+                    description: "Nama User"
+                    schema:
+                      type: string
+                  organisasi:
+                    description: "Kode Organisasi User"
+                    schema:
+                      type: string
+                  telepon:
+                    description: "Telepone User"
+                    schema:
+                      type: string
+                  role:
+                    type: object
+                    example: [
+                      {kode_role: "INFO_ADMIN"},
+                      {kode_role: "HIT_SAP_BAS"}
+                     ]
+                        
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+    /sso/admin/bulletin:
+    /sso/admin/bulletin/category:
+    /sso/aplikasi:
+    /sso/aplikasi/modul:
+    /sso/aplikasi/role:
+    /sso/bulletin/thumbnail:
+    /sso/bulletin/dashboard:
+
+      
   components:
     schemas:
       datatable:
@@ -457,19 +600,7 @@ contents: >-
                 }]
               },
               {
-                data: "progress",
-                name: "",
-                searchable: "true",
-                orderable: "true"
-              },
-              {
-                data: "tanggal_entry",
-                name: "",
-                searchable: "true",
-                orderable: "true"
-              },
-              {
-                data: "ticket",
+                data: "nik",
                 name: "",
                 searchable: "true",
                 orderable: "true"

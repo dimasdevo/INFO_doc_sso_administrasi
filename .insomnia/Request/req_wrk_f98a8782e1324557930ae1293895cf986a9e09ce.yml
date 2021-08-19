@@ -1,0 +1,24 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf986a9e09ce
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
+modified: 1629344837104
+created: 1629344837104
+url: "{{ base_url }}/sso/admin/user/{{ id }}"
+name: Mengambil data user di aplikasi info
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: nik
+    disabled: true
+    value: undefined
+headers: []
+authentication: {}
+metaSortKey: -1629344837105
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
