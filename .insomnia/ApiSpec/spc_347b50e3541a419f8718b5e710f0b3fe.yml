@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629359571412
+modified: 1629361322747
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -765,8 +765,203 @@ contents: >-
             description: "Method not allowed"
         security:
           - ApiKeyAuth: [] 
+    /sso/admin/bulletin/category/{id}:
+      delete:
+        tags:
+        - "Bulletin"
+        summary: "Menghapus data kategori buletin di aplikasi info"
+        description : "Menghapus data kategori buletin di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "id"
+          in: "path"
+          description: "Kode Kategori Buletin"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
     /sso/aplikasi:
+      get:
+        tags:
+        - "Admin"
+        summary: "Mengambil data Aplikasi yanga ada di aplikasi info"
+        description : "Mengambil data Aplikasi yanga ada di aplikasi info berdasarkan user id"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_aplikasi"
+          in: "query"
+          description: "Kode aplikasi"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      post:
+        tags:
+        - "Admin"
+        summary: "Menambahkan data Aplikasi yanga ada di aplikasi info"
+        description : "Menambahkan data Aplikasi yanga ada di aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  kode_aplikasi:
+                    description: "ID kode Aplikasi"
+                    type: string
+                  nama_aplikasi:
+                    description: "Nama Aplikasi"
+                    type: string
+                  deskripsi_aplikasi:
+                    description: "Deskripsi Aplikasi"
+                    type: string
+                  uri:
+                    description: "URI Aplikasi"
+                    type: string
+                  icon:
+                    description: "Icon Aplikasi"
+                    type: string
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      delete:
+        tags:
+        - "Admin"
+        summary: "Menghapus data Aplikasi yanga ada di aplikasi info"
+        description : "Menghapus data Aplikasi yanga ada di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_aplikasi"
+          in: "query"
+          description: "Kode aplikasi"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+    /sso/aplikasi/applist:
+      get:
+        tags:
+        - "Admin"
+        summary: "Mengambil data Aplikasi yanga ada di aplikasi info"
+        description : "Mengambil data Aplikasi yanga ada di aplikasi info"
+        produces:
+        - "application/json"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
     /sso/aplikasi/modul:
+      get:
+        tags:
+        - "Admin"
+        summary: "Mengambil data Modul yanga ada di aplikasi info"
+        description : "Mengambil data Modul yanga ada di aplikasi info berdasarkan user id"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_modul"
+          in: "query"
+          description: "Kode modul"
+          type: "string"
+        - name: "kode_parent"
+          in: "query"
+          description: "Kode parent modul"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      post:
+        tags:
+        - "Admin"
+        summary: "Menambahkan data Modul yanga ada di aplikasi info"
+        description : "Menambahkan data Modul yanga ada di aplikasi info"
+        produces:
+        - "application/json"
+        requestBody:
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  kode_modul:
+                    description: "ID kode Modul"
+                    type: string
+                  kode_parent:
+                    description: "ID kode parent Modul"
+                    type: string
+                  nama_modul:
+                    description: "Nama Modul"
+                    type: string
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: [] 
+      delete:
+        tags:
+        - "Admin"
+        summary: "Menghapus data Modul yanga ada di aplikasi info"
+        description : "Menghapus data Modul yanga ada di aplikasi info"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "kode_modul"
+          in: "query"
+          description: "Kode modul"
+          type: "string"
+        responses:
+          "200":
+            description: "Succesfull operation"
+          "400":
+            description: "Invalid"
+          "405":
+            description: "Method not allowed"
+        security:
+          - ApiKeyAuth: []
     /sso/aplikasi/role:
     /sso/bulletin/thumbnail:
     /sso/bulletin/dashboard:
