@@ -21,7 +21,10 @@ parameters:
   - name: organisasi
     disabled: true
     value: undefined
-headers: []
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
 authentication: {}
 metaSortKey: -1629364986205
 isPrivate: false

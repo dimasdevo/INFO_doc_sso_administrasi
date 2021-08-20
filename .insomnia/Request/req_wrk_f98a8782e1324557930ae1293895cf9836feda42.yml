@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf9836feda42
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025526
-created: 1628756926927
+modified: 1629443789742
+created: 1629443789742
 url: "{{ base_url }}/sso/user/role"
-name: Mencari data karyawan
+name: Mengambil role user info
 description: ""
 method: GET
 body: {}
@@ -14,7 +14,7 @@ parameters:
     value: undefined
 headers: []
 authentication: {}
-metaSortKey: -1628756926927
+metaSortKey: -1629443789742
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

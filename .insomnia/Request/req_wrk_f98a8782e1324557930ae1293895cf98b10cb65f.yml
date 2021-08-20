@@ -1,7 +1,7 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98b10cb65f
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025530
+modified: 1629443764442
 created: 1628756926930
 url: "{{ base_url }}/sso/user/repassword"
 name: Halaman redirect untuk reset password aplikasi info
@@ -9,6 +9,15 @@ description: ""
 method: POST
 body:
   mimeType: multipart/form-data
+  params:
+    - id: pair_5c2b51a149484637a4bfc80efaa733d7
+      name: nik
+      value: ""
+      description: NIK Karyawan
+    - id: pair_ac802110a2214ce992524e2fef20a0a3
+      name: id
+      value: ""
+      description: ID Access Reset Password
 parameters: []
 headers: []
 authentication: {}

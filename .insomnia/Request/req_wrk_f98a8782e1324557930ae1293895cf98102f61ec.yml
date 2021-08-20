@@ -12,7 +12,10 @@ parameters:
   - name: kode_role
     disabled: true
     value: undefined
-headers: []
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
 authentication: {}
 metaSortKey: -1629364986198
 isPrivate: false

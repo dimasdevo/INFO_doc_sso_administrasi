@@ -1,7 +1,7 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf989d70e47b
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025528
+modified: 1629443611193
 created: 1628756926929
 url: "{{ base_url }}/sso/user/register"
 name: Halaman redirect untuk register user aplikasi info
@@ -9,6 +9,11 @@ description: ""
 method: POST
 body:
   mimeType: multipart/form-data
+  params:
+    - id: pair_9fbdfabe41aa475fa19c7f6f60a610ee
+      name: nik
+      value: ""
+      description: NIK karyawan
 parameters: []
 headers: []
 authentication: {}

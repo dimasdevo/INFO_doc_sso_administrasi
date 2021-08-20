@@ -12,7 +12,10 @@ parameters:
   - name: nik
     disabled: true
     value: undefined
-headers: []
+headers:
+  - name: token
+    disabled: false
+    value: "{{ token }}"
 authentication: {}
 metaSortKey: -1629344837111
 isPrivate: false

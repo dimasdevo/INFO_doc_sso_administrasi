@@ -1,12 +1,12 @@
-_id: req_wrk_f98a8782e1324557930ae1293895cf980e4f0999
+_id: req_wrk_f98a8782e1324557930ae1293895cf98395ea82d
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf98f3e4fadb
-modified: 1628757025521
-created: 1628756926924
-url: "{{ base_url }}/sso/user/export"
-name: Me-export data user portal ke aplikasi info
+modified: 1629443513888
+created: 1629443513888
+url: "{{ base_url }}/sso/user/export/{{ id }}"
+name: Mengupdate user info dari user portal
 description: ""
-method: POST
+method: PUT
 body: {}
 parameters: []
 headers:
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1628756926924
+metaSortKey: -1629443513888
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
