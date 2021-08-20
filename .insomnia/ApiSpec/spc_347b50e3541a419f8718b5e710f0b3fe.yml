@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629434720251
+modified: 1629442369716
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -195,9 +195,8 @@ contents: >-
       get:
         tags:
         - "User"
-        summary: "Mencari data karyawan"
-        description: "Mencari data karyawan"
-        operationsId: "/general/employee"
+        summary: "Mengambil role user info"
+        description: "Mengambil semua role yang ada di aplikasi info"
         produces:
         - "application/json"
         parameters:
@@ -215,7 +214,7 @@ contents: >-
       get:
         tags:
         - "Export"
-        summary: "Mengambil data export dari user portal"
+        summary: "Mengambil data dari user portal"
         description : "Mengambil data export dari user portal"
         produces:
         - "application/json"
@@ -231,7 +230,7 @@ contents: >-
       post:
         tags:
         - "Export"
-        summary: "Me-export data user portal ke aplikasi info"
+        summary: "Menexport data user portal ke info"
         description : "Me-export data user portal mejadi user di aplikasi info dengan data yang belum ada"
         produces:
         - "application/json"
@@ -244,15 +243,16 @@ contents: >-
             description: "Method not allowed"
         security:
           - ApiKeyAuth: []
+    /sso/user/export/{id}:
       put:
         tags:
         - "Export"
-        summary: "Mengupdate data log dari aplikasi info frontend"
-        description : "Mengupdate data log dari aplikasi info frontend"
+        summary: "Mengupdate user info dari user portal"
+        description : "Mengupdate user info dari user portal berdasarkan id tertentu"
         produces:
         - "application/json"
         parameters:
-        - in: query
+        - in: path
           name: "id"
           description: "NIK karyawan"
           required: true
@@ -271,7 +271,7 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan berdasarkan nilai tertentu"
+        summary: "Mengambil pekerjaan berdasarkan value"
         description : "Mengambil data pekerjaan berdasarkan nilai tertentu"
         produces:
         - "application/json"
@@ -304,7 +304,7 @@ contents: >-
       post:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        summary: "Mengambil pekerjaan Datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
         produces:
         - "application/json"
@@ -325,7 +325,7 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil jumlah data pekerjaan berdasarkan id"
+        summary: "Mengambil total pekerjaan"
         description : "Mengambil jumlah data pekerjaan berdasarkan id"
         produces:
         - "application/json"
@@ -342,8 +342,8 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan sendiri"
-        description : "Mengambil data pekerjaan sendiri"
+        summary: "Mengambil pekerjaan dari user"
+        description : "Mengambil data pekerjaan yang dibuat user sendiri"
         produces:
         - "application/json"
         responses:
@@ -358,7 +358,8 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        summary: "Mengambil pekerjaan datatable"
+        deprecated: true
         description : "Mengambil data pekerjaan untuk plugin datatable"
         produces:
         - "application/json"
@@ -378,8 +379,8 @@ contents: >-
        get:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan berdasarkan id"
-        description : "Mengambil data pekerjaan berdasarkan id"
+        summary: "Mengambil pekerjaan untuk user "
+        description : "Mengambil data pekerjaan yang di arahkan ke user"
         produces:
         - "application/json"
         responses:
@@ -395,8 +396,9 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        summary: "Mengambil data pekerjaan datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
+        deprecated: true
         produces:
         - "application/json"
         requestBody:
@@ -415,8 +417,9 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan untuk plugin datatable"
+        summary: "Mengambil data pekerjaan datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
+        deprecated: true
         produces:
         - "application/json"
         requestBody:
@@ -435,7 +438,7 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil data aktivitas terhadap pekerjaan"
+        summary: "Mengambil aktivitas pekerjaan"
         description : "Mengambil data aktivitas terhadap pekerjaan"
         produces:
         - "application/json"
@@ -456,7 +459,7 @@ contents: >-
       post:
         tags:
         - "Job"
-        summary: "Mengambil data aktivitas terhadap pekerjaan"
+        summary: "Mengambil aktivitas pekerjaan Datatable"
         description : "Mengambil data aktivitas terhadap pekerjaan berupa datatable"
         produces:
         - "application/json"
