@@ -1,7 +1,7 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98303d6d64
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf989f8a2389
-modified: 1628757025535
+modified: 1629429986624
 created: 1628754947920
 url: "{{ base_url }}/sso/user/login"
 name: Halaman login dari aplikasi info
@@ -9,6 +9,15 @@ description: ""
 method: POST
 body:
   mimeType: multipart/form-data
+  params:
+    - id: pair_4e2c95bccaac4070a870fba5cca9fb52
+      name: nik
+      value: "180137"
+      description: NIK Karyawan
+    - id: pair_3eec8065b6994346be69df6d3db6656c
+      name: password
+      value: CHange11@@
+      description: Password
 parameters: []
 headers: []
 authentication: {}

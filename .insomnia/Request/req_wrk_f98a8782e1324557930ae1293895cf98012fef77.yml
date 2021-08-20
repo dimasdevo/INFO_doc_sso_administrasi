@@ -9,7 +9,10 @@ description: ""
 method: POST
 body:
   mimeType: multipart/form-data
-parameters: []
+parameters:
+  - name: kode_modul
+    disabled: true
+    value: undefined
 headers:
   - name: token
     disabled: false

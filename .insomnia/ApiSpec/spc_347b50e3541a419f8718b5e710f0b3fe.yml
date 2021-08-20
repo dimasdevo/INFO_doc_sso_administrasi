@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629364450309
+modified: 1629429954031
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -887,8 +887,6 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
     /sso/aplikasi/modul:
       get:
         tags:
