@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98f940bdeb
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629361512360
-created: 1629361512360
+modified: 1629444100222
+created: 1629444100222
 url: "{{ base_url }}/sso/aplikasi/applist"
-name: Mengambil data Aplikasi yanga ada di aplikasi info
+name: Mengambil semua aplikasi
 description: ""
 method: GET
 body: {}
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629361512360
+metaSortKey: -1629444100222
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

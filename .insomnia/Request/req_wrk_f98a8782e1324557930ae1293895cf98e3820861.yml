@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98e3820861
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf9830c8cb83
-modified: 1629341279781
-created: 1629341279781
+modified: 1629445132253
+created: 1629445132253
 url: "{{ base_url }}/sso/job"
-name: Mengambil data pekerjaan untuk plugin datatable
+name: Mengambil pekerjaan Datatable
 description: ""
 method: POST
 body:
@@ -34,19 +34,7 @@ body:
           ]
         },
         {
-          "data": "progress",
-          "name": "",
-          "searchable": "true",
-          "orderable": "true"
-        },
-        {
-          "data": "tanggal_entry",
-          "name": "",
-          "searchable": "true",
-          "orderable": "true"
-        },
-        {
-          "data": "ticket",
+          "data": "nik",
           "name": "",
           "searchable": "true",
           "orderable": "true"
@@ -61,7 +49,7 @@ headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1629341279781
+metaSortKey: -1629445132253
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf9820f2d54d
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629345493636
-created: 1629345493636
+modified: 1629444100414
+created: 1629444100414
 url: "{{ base_url }}/sso/admin/user/{{ id }}"
-name: Mengambil data user di aplikasi info
+name: Mengupdate user
 description: ""
 method: PUT
 body:
@@ -18,7 +18,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629345493636
+metaSortKey: -1629444100414
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

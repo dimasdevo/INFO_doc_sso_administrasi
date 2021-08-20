@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98592e2d57
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf9830c8cb83
-modified: 1629344837118
-created: 1629344837118
+modified: 1629445132195
+created: 1629445132195
 url: "{{ base_url }}/sso/activity"
-name: Mengambil data aktivitas terhadap pekerjaan
+name: Mengambil aktivitas pekerjaan
 description: ""
 method: GET
 body: {}
@@ -17,7 +17,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629344837118
+metaSortKey: -1629445132195
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

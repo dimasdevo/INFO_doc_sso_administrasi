@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98960c32c6
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629344837111
-created: 1629344837111
+modified: 1629444100424
+created: 1629444100424
 url: "{{ base_url }}/sso/admin/user"
-name: Mengambil data user di aplikasi info
+name: Mengambil semua user
 description: ""
 method: GET
 body: {}
@@ -17,7 +17,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629344837111
+metaSortKey: -1629444100425
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

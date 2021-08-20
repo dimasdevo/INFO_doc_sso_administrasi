@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98d73e6f83
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629361512368
-created: 1629361512368
+modified: 1629444100242
+created: 1629444100242
 url: "{{ base_url }}/sso/aplikasi"
-name: Menambahkan data Aplikasi yanga ada di aplikasi info
+name: Menambahkan aplikasi
 description: ""
 method: POST
 body:
@@ -18,7 +18,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629361512368
+metaSortKey: -1629444100242
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

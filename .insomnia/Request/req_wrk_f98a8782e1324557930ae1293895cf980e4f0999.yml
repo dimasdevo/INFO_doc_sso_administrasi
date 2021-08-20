@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf980e4f0999
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf98f3e4fadb
-modified: 1628757025521
-created: 1628756926924
+modified: 1629445132280
+created: 1629445132280
 url: "{{ base_url }}/sso/user/export"
-name: Me-export data user portal ke aplikasi info
+name: Menexport data user portal ke info
 description: ""
 method: POST
 body: {}
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1628756926924
+metaSortKey: -1629445132280
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

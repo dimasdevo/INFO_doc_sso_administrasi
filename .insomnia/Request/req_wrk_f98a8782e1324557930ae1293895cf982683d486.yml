@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf982683d486
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629364986202
-created: 1629364986202
+modified: 1629444100202
+created: 1629444100202
 url: "{{ base_url }}/sso/aplikasi/role"
-name: Menambahkan data Role yanga ada di aplikasi info
+name: Menambahkan Role Aplikasi
 description: ""
 method: POST
 body:
@@ -18,7 +18,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629364986202
+metaSortKey: -1629444100202
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

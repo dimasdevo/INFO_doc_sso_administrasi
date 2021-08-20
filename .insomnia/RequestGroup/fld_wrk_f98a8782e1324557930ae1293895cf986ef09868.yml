@@ -1,10 +1,10 @@
 _id: fld_wrk_f98a8782e1324557930ae1293895cf986ef09868
 type: RequestGroup
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1628757025542
-created: 1628754947925
+modified: 1629445132392
+created: 1629445132392
 name: Bulletin
 description: Semua tentang data buletin di info
 environment: {}
 environmentPropertyOrder: null
-metaSortKey: -1628754947925
+metaSortKey: -1629445132392

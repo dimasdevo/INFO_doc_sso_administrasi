@@ -1,8 +1,8 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98edd4554d
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf986ef09868
-modified: 1629358874333
-created: 1629358874333
+modified: 1629445132134
+created: 1629445132134
 url: "{{ base_url }}/sso/admin/bulletin/{{ id }}"
 name: Menghapus data buletin di aplikasi info
 description: ""
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629358874333
+metaSortKey: -1629445132134
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

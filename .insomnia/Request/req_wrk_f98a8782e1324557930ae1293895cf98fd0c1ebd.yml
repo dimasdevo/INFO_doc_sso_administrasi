@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98fd0c1ebd
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf984e7afebc
-modified: 1629361512347
-created: 1629361512347
+modified: 1629444100210
+created: 1629444100210
 url: "{{ base_url }}/sso/aplikasi/modul"
-name: Menghapus data Modul yanga ada di aplikasi info
+name: Menghapus modul aplikasi
 description: ""
 method: DELETE
 body: {}
@@ -17,7 +17,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629361512347
+metaSortKey: -1629444100210
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

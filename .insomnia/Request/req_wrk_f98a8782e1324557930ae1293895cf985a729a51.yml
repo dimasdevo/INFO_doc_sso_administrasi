@@ -1,10 +1,10 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf985a729a51
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf9830c8cb83
-modified: 1629341279767
-created: 1629341279767
+modified: 1629445132221
+created: 1629445132221
 url: "{{ base_url }}/sso/job/job"
-name: Mengambil data pekerjaan berdasarkan id
+name: "Mengambil pekerjaan untuk user "
 description: ""
 method: GET
 body: {}
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629341279767
+metaSortKey: -1629445132221
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

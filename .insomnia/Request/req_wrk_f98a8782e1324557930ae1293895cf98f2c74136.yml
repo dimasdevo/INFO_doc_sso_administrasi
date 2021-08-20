@@ -1,8 +1,8 @@
 _id: req_wrk_f98a8782e1324557930ae1293895cf98f2c74136
 type: Request
 parentId: fld_wrk_f98a8782e1324557930ae1293895cf986ef09868
-modified: 1629348428682
-created: 1629348428682
+modified: 1629445132103
+created: 1629445132103
 url: "{{ base_url }}/sso/admin/bulletin/img/{{ id }}"
 name: Mengambil data buletin di aplikasi info
 description: ""
@@ -14,7 +14,7 @@ headers:
     disabled: false
     value: "{{ token }}"
 authentication: {}
-metaSortKey: -1629348428682
+metaSortKey: -1629445132103
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
