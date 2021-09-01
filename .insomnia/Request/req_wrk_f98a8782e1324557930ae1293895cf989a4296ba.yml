@@ -1,0 +1,24 @@
+_id: req_wrk_f98a8782e1324557930ae1293895cf989a4296ba
+type: Request
+parentId: fld_wrk_f98a8782e1324557930ae1293895cf98f3e4fadb
+modified: 1630470998698
+created: 1628756926896
+url: "{{ base_url }}/sso/user/export"
+name: Mengupdate data log dari aplikasi info frontend
+description: ""
+method: PUT
+body: {}
+parameters:
+  - name: id
+    disabled: false
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1628756926896
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

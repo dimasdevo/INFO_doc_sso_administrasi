@@ -1,7 +1,7 @@
 _id: spc_347b50e3541a419f8718b5e710f0b3fe
 type: ApiSpec
 parentId: wrk_f98a8782e1324557930ae1293895cf98
-modified: 1629445132475
+modified: 1630471412175
 created: 1609993096619
 fileName: INFO_SSO
 contents: >-
@@ -16,13 +16,9 @@ contents: >-
       email: "infosupport@indonesian-aerospace.com"
   servers:
     - url: "http://api"
-      description: Local server
     - url: "http://helpdesk-api-dev"
-      description: Development server
     - url: "http://helpdesk-api-test"
-      description: Testing server
     - url: "https://helpdesk-api.indonesian-aerospace.com"
-      description: Production server (uses live data)
   tags:
 
   - name: "User"
@@ -148,7 +144,7 @@ contents: >-
                     schema:
                       type: string
                   id:
-                    description: "ID Access Reset Password"
+                    description: "NIK karyawan"
                     schema:
                       type: string
                 required:
@@ -195,8 +191,9 @@ contents: >-
       get:
         tags:
         - "User"
-        summary: "Mengambil role user info"
-        description: "Mengambil semua role yang ada di aplikasi info"
+        summary: "Mencari data karyawan"
+        description: "Mencari data karyawan"
+        operationsId: "/general/employee"
         produces:
         - "application/json"
         parameters:
@@ -214,7 +211,7 @@ contents: >-
       get:
         tags:
         - "Export"
-        summary: "Mengambil data dari user portal"
+        summary: "Mengambil data export dari user portal"
         description : "Mengambil data export dari user portal"
         produces:
         - "application/json"
@@ -225,15 +222,24 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
       post:
         tags:
         - "Export"
-        summary: "Menexport data user portal ke info"
+        summary: "Me-export data user portal ke aplikasi info"
         description : "Me-export data user portal mejadi user di aplikasi info dengan data yang belum ada"
         produces:
         - "application/json"
+        requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  nik:
+                    description: "NIK Karyawan"
+                    schema:
+                      type: string
         responses:
           "200":
             description: "Succesfull operation"
@@ -241,18 +247,15 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
-    /sso/user/export/{id}:
       put:
         tags:
         - "Export"
-        summary: "Mengupdate user info dari user portal"
-        description : "Mengupdate user info dari user portal berdasarkan id tertentu"
+        summary: "Mengupdate data log dari aplikasi info frontend"
+        description : "Mengupdate data log dari aplikasi info frontend"
         produces:
         - "application/json"
         parameters:
-        - in: path
+        - in: query
           name: "id"
           description: "NIK karyawan"
           required: true
@@ -265,13 +268,11 @@ contents: >-
             description: "Invalid"
           "405":
             description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
     /sso/job:
       get:
         tags:
         - "Job"
-        summary: "Mengambil pekerjaan berdasarkan value"
+        summary: "Mengambil data pekerjaan berdasarkan nilai tertentu"
         description : "Mengambil data pekerjaan berdasarkan nilai tertentu"
         produces:
         - "application/json"
@@ -304,7 +305,7 @@ contents: >-
       post:
         tags:
         - "Job"
-        summary: "Mengambil pekerjaan Datatable"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
         produces:
         - "application/json"
@@ -325,7 +326,7 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil total pekerjaan"
+        summary: "Mengambil jumlah data pekerjaan berdasarkan id"
         description : "Mengambil jumlah data pekerjaan berdasarkan id"
         produces:
         - "application/json"
@@ -342,8 +343,8 @@ contents: >-
       get:
         tags:
         - "Job"
-        summary: "Mengambil pekerjaan dari user"
-        description : "Mengambil data pekerjaan yang dibuat user sendiri"
+        summary: "Mengambil data pekerjaan sendiri"
+        description : "Mengambil data pekerjaan sendiri"
         produces:
         - "application/json"
         responses:
@@ -358,8 +359,7 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil pekerjaan datatable"
-        deprecated: true
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
         produces:
         - "application/json"
@@ -379,8 +379,8 @@ contents: >-
        get:
         tags:
         - "Job"
-        summary: "Mengambil pekerjaan untuk user "
-        description : "Mengambil data pekerjaan yang di arahkan ke user"
+        summary: "Mengambil data pekerjaan berdasarkan id"
+        description : "Mengambil data pekerjaan berdasarkan id"
         produces:
         - "application/json"
         responses:
@@ -396,9 +396,8 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan datatable"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
-        deprecated: true
         produces:
         - "application/json"
         requestBody:
@@ -417,9 +416,8 @@ contents: >-
       patch:
         tags:
         - "Job"
-        summary: "Mengambil data pekerjaan datatable"
+        summary: "Mengambil data pekerjaan untuk plugin datatable"
         description : "Mengambil data pekerjaan untuk plugin datatable"
-        deprecated: true
         produces:
         - "application/json"
         requestBody:
@@ -434,726 +432,6 @@ contents: >-
           "400":
             description: "Invalid"
           "405":
-    /sso/activity:
-      get:
-        tags:
-        - "Job"
-        summary: "Mengambil aktivitas pekerjaan"
-        description : "Mengambil data aktivitas terhadap pekerjaan"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "nik"
-          in: "query"
-          description: "Nomor ID Karyawan"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:
-        tags:
-        - "Job"
-        summary: "Mengambil aktivitas pekerjaan Datatable"
-        description : "Mengambil data aktivitas terhadap pekerjaan berupa datatable"
-        produces:
-        - "application/json"
-        requestBody:
-          required: true
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/datatable'
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-    /sso/admin/user:
-      get:
-        tags:
-        - "Admin"
-        summary: "Mengambil semua user"
-        description : "Mengambil data user di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "nik"
-          in: "query"
-          description: "Nomor ID User"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:
-        tags:
-        - "Admin"
-        summary: "Mengambil user Datatable"
-        description : "Mengambil data user di aplikasi info berupa datatable"
-        produces:
-        - "application/json"
-        requestBody:
-          required: true
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/datatable'
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-    /sso/admin/user/{id}:
-      put:
-        tags:
-        - "Admin"
-        summary: "Mengupdate user"
-        description : "Mengupdate data user di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Nomor ID User"
-          type: "string"
-        - name: "nik"
-          in: "query"
-          description: "Nomor ID User"
-          type: "string"
-        requestBody:
-          required: true
-          content:
-            application/x-www-form-urlencoded:
-              schema:
-                type: object
-                properties:
-                  nik:
-                    description: "Nomor ID User"
-                    schema:
-                      type: string
-                  nama:
-                    description: "Nama User"
-                    schema:
-                      type: string
-                  organisasi:
-                    description: "Kode Organisasi User"
-                    schema:
-                      type: string
-                  telepon:
-                    description: "Telepone User"
-                    schema:
-                      type: string
-                  role:
-                    type: object
-                    example: [
-                      {kode_role: "INFO_ADMIN"},
-                      {kode_role: "HIT_SAP_BAS"}
-                     ]
-                        
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data buletin di aplikasi info"
-        description : "Mengambil data buletin di aplikasi info"
-        produces:
-        - "application/json"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:  
-        tags:
-        - "Bulletin"
-        summary: "Menambah dan update data buletin di aplikasi info"
-        description : "Menambah dan update data buletin di aplikasi info"
-        produces:
-        - "multipart/form-data"
-        parameters:
-        - name: "id"
-          in: "query"
-          description: "Nomor ID Buletin"
-          type: "string"
-        requestBody:
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  nama:
-                    description: "Nama Buletin"
-                    type: string
-                  deskripsi:
-                    description: "Deskripsi Buletin"
-                    schema:
-                      type: string
-                  kode_kategori:
-                    description: "Kode kategori Buletin"
-                    schema:
-                      type: string
-                  ekstensi:
-                    description: "Ekstensi Buletin"
-                    schema:
-                      type: string
-                  highlight:
-                    description: "Highlight Buletin"
-                    schema:
-                      type: string
-                  image:
-                    description: "Image Buletin"
-                    schema:
-                      type: string
-                  image_thumbnail:
-                    description: "Image Thumbnail Buletin"
-                    type: image
-                    format: binary
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/{id}:
-      delete:
-        tags:
-        - "Bulletin"
-        summary: "Menghapus data buletin di aplikasi info"
-        description : "Menghapus data buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Nomor ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/data/{id}:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data buletin di aplikasi info"
-        description : "Mengambil data buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Nomor ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/img/{id}:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data buletin di aplikasi info"
-        description : "Mengambil data buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Nomor ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/tmb/{id}:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data buletin di aplikasi info"
-        description : "Mengambil data buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Nomor ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/category:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data kategori buletin di aplikasi info"
-        description : "Mengambil data kategori buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_aplikasi"
-          in: "query"
-          description: "Kode aplikasi"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:
-        tags:
-        - "Bulletin"
-        summary: "Menambahkan data kategori buletin di aplikasi info"
-        description : "Menambahkan data kategori buletin di aplikasi info"
-        produces:
-        - "application/json"
-        requestBody:
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  nama:
-                    description: "Nama Kategori Buletin"
-                    type: string
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/admin/bulletin/category/{id}:
-      delete:
-        tags:
-        - "Bulletin"
-        summary: "Menghapus data kategori buletin di aplikasi info"
-        description : "Menghapus data kategori buletin di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Kode Kategori Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/aplikasi:
-      get:
-        tags:
-        - "Admin"
-        summary: "Mengambil aplikasi berdasarkan ID"
-        description : "Mengambil data aplikasi yanga terdaftar di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_aplikasi"
-          in: "query"
-          description: "Kode aplikasi"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:
-        tags:
-        - "Admin"
-        summary: "Menambahkan aplikasi"
-        description : "Menambahkan data Aplikasi yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_aplikasi"
-          in: "query"
-          description: "Kode aplikasi"
-          type: "string"
-        requestBody:
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  kode_aplikasi:
-                    description: "ID kode Aplikasi"
-                    type: string
-                  nama_aplikasi:
-                    description: "Nama Aplikasi"
-                    type: string
-                  deskripsi_aplikasi:
-                    description: "Deskripsi Aplikasi"
-                    type: string
-                  uri:
-                    description: "URI Aplikasi"
-                    type: string
-                  icon:
-                    description: "Icon Aplikasi"
-                    type: string
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      delete:
-        tags:
-        - "Admin"
-        summary: "Menghapus Aplikasi"
-        description : "Menghapus data Aplikasi yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_aplikasi"
-          in: "query"
-          description: "Kode aplikasi"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/aplikasi/applist:
-      get:
-        tags:
-        - "Admin"
-        summary: "Mengambil semua aplikasi"
-        description : "Mengambil data Aplikasi yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-    /sso/aplikasi/modul:
-      get:
-        tags:
-        - "Admin"
-        summary: "Mengambil semua modul aplikasi"
-        description : "Mengambil data Modul yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_modul"
-          in: "query"
-          description: "Kode modul"
-          type: "string"
-        - name: "kode_parent"
-          in: "query"
-          description: "Kode parent modul"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      post:
-        tags:
-        - "Admin"
-        summary: "Menambahkan modul aplikasi"
-        description : "Menambahkan data Modul yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_modul"
-          in: "query"
-          description: "Kode modul"
-          type: "string"
-        requestBody:
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  kode_modul:
-                    description: "ID kode Modul"
-                    type: string
-                  kode_parent:
-                    description: "ID kode parent Modul"
-                    type: string
-                  nama_modul:
-                    description: "Nama Modul"
-                    type: string
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      delete:
-        tags:
-        - "Admin"
-        summary: "Menghapus modul aplikasi"
-        description : "Menghapus data Modul yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_modul"
-          in: "query"
-          description: "Kode modul"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
-    /sso/aplikasi/role:
-      get:
-        tags:
-        - "Admin"
-        summary: "Mengambil semua Role Aplikasi"
-        description : "Mengambil data Role yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_role"
-          in: "query"
-          description: "Kode role aplikasi"
-          type: "string"
-        - name: "kode_aplikasi"
-          in: "query"
-          description: "Kode aplikasi"
-          type: "string"
-        - name: "nik"
-          in: "query"
-          description: "NIK Karyawan"
-          type: "string"
-        - name: "organisasi"
-          in: "query"
-          description: "Organisasi Karyawan"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
-      post:
-        tags:
-        - "Admin"
-        summary: "Menambahkan Role Aplikasi"
-        description : "Menambahkan data Role yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_role"
-          in: "query"
-          description: "Kode modul"
-          type: "string"
-        requestBody:
-          content:
-            multipart/form-data:
-              schema:
-                type: object
-                properties:
-                  kode_modul:
-                    description: "ID kode Modul"
-                    type: string
-                  kode_role:
-                    description: "ID kode role"
-                    type: string
-                  nama_role:
-                    description: "Nama Role"
-                    type: string
-                  deskripsi_role:
-                    description: "Deskripsi Role"
-                    type: string
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: [] 
-      delete:
-        tags:
-        - "Admin"
-        summary: "Menghapus Role Aplikasi"
-        description : "Menghapus data Role yanga ada di aplikasi info"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "kode_role"
-          in: "query"
-          description: "Kode Role"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-        security:
-          - ApiKeyAuth: []
-    /sso/bulletin/thumbnail:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data thumbnail yanga ada di aplikasi info"
-        description : "Mengambil data thumbnail yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-    /sso/bulletin/thumbnail/{id}:
-       get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil gambar thumbnail yanga ada di aplikasi info"
-        description : "Mengambil gambar thumbnail yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Kode ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-    /sso/bulletin/dashboard:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil data bulletin yanga ada di aplikasi info"
-        description : "Mengambil data bulletin yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "category"
-          in: "query"
-          description: "Kategori Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
-    /sso/bulletin/dashboard/{id}:
-      get:
-        tags:
-        - "Bulletin"
-        summary: "Mengambil gambar bulletin yanga ada di aplikasi info"
-        description : "Mengambil gambar bulletin yanga ada di aplikasi info berdasarkan user id"
-        produces:
-        - "application/json"
-        parameters:
-        - name: "id"
-          in: "path"
-          description: "Kode ID Buletin"
-          type: "string"
-        responses:
-          "200":
-            description: "Succesfull operation"
-          "400":
-            description: "Invalid"
-          "405":
-            description: "Method not allowed"
   components:
     schemas:
       datatable:
@@ -1190,7 +468,19 @@ contents: >-
                 }]
               },
               {
-                data: "nik",
+                data: "progress",
+                name: "",
+                searchable: "true",
+                orderable: "true"
+              },
+              {
+                data: "tanggal_entry",
+                name: "",
+                searchable: "true",
+                orderable: "true"
+              },
+              {
+                data: "ticket",
                 name: "",
                 searchable: "true",
                 orderable: "true"
@@ -1199,7 +489,8 @@ contents: >-
           search:
             type: object
             example: 
-              {'value':'160260'} 
+              {'value':'160260'}
+        
     securitySchemes:
       ApiKeyAuth:
         type: apiKey
